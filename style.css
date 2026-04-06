@@ -37,3 +37,9 @@ button {
 button:hover {
   background: #1d4ed8;
 }
+
+
+
+#map{
+    height:500px;
+}
