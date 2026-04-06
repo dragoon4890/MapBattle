@@ -43,3 +43,8 @@ button:hover {
 #map{
     height:500px;
 }
+
+#memory{
+    height: 250px;
+    background-color: saddl;
+}
