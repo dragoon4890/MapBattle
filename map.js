@@ -6,12 +6,24 @@ var map = L.map('map', {
     zoom: 10
 });
 
+
+//Tile Layer is basically what u call img source ( its providing the map we see)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 
+// A crude function to add Markers on clicks 
+// TODO max marker count be 1, remove previous marker or setLatlng
+map.addEventListener("click",(e)=>{
+    console.log(map._panes.markerPane.children.length)
+
+    L.marker(e.latlng).addTo(map)
+})
+
+
+// helper function to find radian or curved distance between two points
 function HaversineDist(point1 , point2){
      var lat1, long1=point1;
     var lat2,long2=point2;
