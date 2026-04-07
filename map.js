@@ -23,14 +23,24 @@ map.addEventListener("click",(e)=>{
 })
 
 
+
 // helper function to find radian or curved distance between two points
 function HaversineDist(point1 , point2){
-     var lat1, long1=point1;
-    var lat2,long2=point2;
+    //Tuple Destructing is kind of different in js as opposed to py
+     var [lat1, long1]=point1;
+    var [lat2,long2]=point2;
+
+    const toRad = Math.PI / 180;
+
+    //Radian Conversion
+    lat1*=toRad
+    lat2*=toRad
+    long1*=toRad
+    long2*=toRad
 
     const delta_lat=lat1-lat2;
     const delta_long=long1-long2;
-    var havTheta = (1-Math.cos(delta_lat)+Math.cos(lat1)*Math.cos(lat2)*(1-cos(delta_long)))
+    var havTheta = (1-Math.cos(delta_lat)+Math.cos(lat1)*Math.cos(lat2)*(1-Math.cos(delta_long)))
     havTheta/=2
     const theta=2*Math.asin(Math.sqrt(havTheta))
 
