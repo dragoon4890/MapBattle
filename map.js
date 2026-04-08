@@ -15,15 +15,19 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 // A crude function to add Markers on clicks 
-// TODO max marker count be 1, remove previous marker or setLatlng
+var mark = null
 map.addEventListener("click",(e)=>{
-    console.log(map._panes.markerPane.children.length)
-
-    L.marker(e.latlng).addTo(map)
+    if (mark===null){
+        mark=L.marker(e.latlng)
+        mark.addTo(map)
+    }
+    else{
+        mark.setLatLng(e.latlng)
+    }
 })
 
 
-
+// leaflet has DistanceTo which has this function already so helper deprecated
 // helper function to find radian or curved distance between two points
 function HaversineDist(point1 , point2){
     //Tuple Destructing is kind of different in js as opposed to py
