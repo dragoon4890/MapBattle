@@ -71,4 +71,25 @@ else{
 }
 })
 
+const datapoints =[[13.2,77.0],[69.7,3.0]]
+let curr = datapoints[0] // some datapoint
 
+
+// Line drawer  between selected points,   
+// TODO , add cleanup to remove stray lines 
+let SubmitButton =document.getElementById("chk")
+SubmitButton.addEventListener("click",(e)=>{
+    if (mark===null){
+        console.log("Didnt select anything")
+    }
+    else{
+        let ans=mark.getLatLng()
+        var points =[ans, curr]
+        var ma = L.polyline(points , {color:'red'}).addTo(map);
+        map.fitBounds(ma.getBounds());
+
+        let {lat ,lng}=ans
+       // console.log(HaversineDist([lat,lng],curr), curr , ans)
+       console.log(ans.distanceTo(curr)/1000)
+    }
+})
