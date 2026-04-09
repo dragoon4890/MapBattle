@@ -15,8 +15,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 // A crude function to add Markers on clicks 
+
 var mark = null
 map.addEventListener("click",(e)=>{
+    if (line){
+        line.remove()
+    }
     if (mark===null){
         mark=L.marker(e.latlng)
         mark.addTo(map)
@@ -76,7 +80,8 @@ let curr = datapoints[0] // some datapoint
 
 
 // Line drawer  between selected points,   
-// TODO , add cleanup to remove stray lines 
+let line=null
+
 let SubmitButton =document.getElementById("chk")
 SubmitButton.addEventListener("click",(e)=>{
     if (mark===null){
@@ -85,8 +90,8 @@ SubmitButton.addEventListener("click",(e)=>{
     else{
         let ans=mark.getLatLng()
         var points =[ans, curr]
-        var ma = L.polyline(points , {color:'red'}).addTo(map);
-        map.fitBounds(ma.getBounds());
+        line = L.polyline(points , {color:'red'}).addTo(map);
+        map.fitBounds(line.getBounds());
 
         let {lat ,lng}=ans
        // console.log(HaversineDist([lat,lng],curr), curr , ans)
