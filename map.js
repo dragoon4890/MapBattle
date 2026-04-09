@@ -50,3 +50,25 @@ function HaversineDist(point1 , point2){
 
     return 6371*theta
 }
+
+
+
+// TODO Game Start button  to start testing on predefined datapoints to check DistanceTo(Haversine Dist) 
+
+var GameStart =false
+
+var startButton =document.getElementById("start")
+startButton.addEventListener("click",(e)=>{
+    
+    GameStart=!GameStart
+    console.log(GameStart)
+
+    if (GameStart){
+    startButton.innerText="Stop"
+}
+else{
+    startButton.innerText="Start"
+}
+})
+
+
