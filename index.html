@@ -1,29 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahe Guessr</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-</head>
-<body>
-  <header>
-    <h1>Mahe Guessr</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahe Guessr</title>
 
-  <main>
-    <!-- <p>Project starter template. Replace this content with your app.</p> -->
-    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXZzMTcydDd5NjgyeHN3eW5sdHk5d2RmYnVtMmJvcTh5NTkweDYyMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XocLGAOAkQoD5eiGj0/giphy.gif" id="memory">
-      <button id="start">Start the game</button>
-    <div id="map">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="Main">
+      <!-- <p>Project starter template. Replace this content with your app.</p> -->
+      <div id="startScreen">
+        <button id="start">Start the game</button>
+      </div>
 
-    </div>
-    <button id="chk">Submit</button>
-  </main>
+      <div id="right">
+        <img
+          src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXZzMTcydDd5NjgyeHN3eW5sdHk5d2RmYnVtMmJvcTh5NTkweDYyMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XocLGAOAkQoD5eiGj0/giphy.gif"
+          id="memory"
+        />
+      </div>
 
-  <script src="script.js"></script>
-  <script src="map.js"></script>
-</body>
+      <div id="left">
+        <div id="map"></div>
+        <button id="chk">Submit</button>
+      </div>
+    </main>
+
+    <script src="map.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

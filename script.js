@@ -6,5 +6,27 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Mahe Guessr starter template is ready!");
   });
 });
-13.131126789696053, 77.58778377525103
 
+
+
+var GameStart = false;
+var startButton = document.getElementById("start");
+
+function StartGame() {
+  if (!GameStart) {
+    document.getElementById("left").style.display = "none";
+    document.getElementById("right").style.display = "none";
+  } else {
+    document.getElementById("left").style.display = "";
+    document.getElementById("right").style.display = "";
+    document.getElementById("startScreen").style.display = "none";
+    map.invalidateSize()
+  }
+}
+
+StartGame();
+
+startButton.addEventListener("click", (e) => {
+  GameStart = !GameStart;
+  StartGame();
+});
